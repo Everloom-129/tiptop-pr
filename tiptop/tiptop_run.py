@@ -13,6 +13,7 @@ import aiohttp
 import numpy as np
 import open3d as o3d
 import rerun as rr
+import tiptop
 import tyro
 from curobo.geom.types import Cuboid, Mesh
 from curobo.types.base import TensorDeviceType
@@ -44,7 +45,7 @@ from tiptop.perception.utils import convert_trimesh_box_to_curobo_cuboid, conver
 from tiptop.perception_wrapper import detect_and_segment, predict_depth_and_grasps
 from tiptop.planning import build_tamp_config, run_planning, save_tiptop_plan, serialize_plan
 from tiptop.recording import (
-    record_cameras,
+    record_droid_episode,
     save_perception_outputs,
     save_run_metadata,
     save_run_outputs,
@@ -589,18 +590,39 @@ async def async_entrypoint(container: _DemoContainer, config: TAMPConfiguration,
                             _log.info("Executing plan...")
                             # Execute with optional recording
                             if container.enable_recording:
-                                cameras_to_record = [
+                                droid_cameras = [
                                     (
                                         container.external_cam,
+                                        "external_camera",
                                         save_dir / "external_cam.svo",
                                         save_dir / "external_cam.mp4",
                                     ),
                                 ]
                                 if isinstance(container.cam, ZedCamera):
-                                    cameras_to_record.append(
-                                        (container.cam, save_dir / "hand_cam.svo", save_dir / "hand_cam.mp4"),
+                                    droid_cameras.append(
+                                        (
+                                            container.cam,
+                                            "hand_camera",
+                                            save_dir / "hand_cam.svo",
+                                            save_dir / "hand_cam.mp4",
+                                        ),
                                     )
-                                with record_cameras(cameras_to_record):
+                                droid_metadata = {
+                                    "task_instruction": task_instruction,
+                                    "timestamp": iso_timestamp,
+                                    "robot_type": cfg.robot.type,
+                                    "world_from_cam_at_capture": np.asarray(
+                                        observation.world_from_cam, dtype=np.float32
+                                    ),
+                                    "q_at_capture": np.asarray(observation.q_init, dtype=np.float32),
+                                    "tiptop_version": tiptop.__version__,
+                                }
+                                with record_droid_episode(
+                                    cameras=droid_cameras,
+                                    client=container.robot,
+                                    h5_path=save_dir / "trajectory.h5",
+                                    metadata=droid_metadata,
+                                ):
                                     execute_cutamp_plan(cutamp_plan, client=container.robot)
                             else:
                                 execute_cutamp_plan(cutamp_plan, client=container.robot)
