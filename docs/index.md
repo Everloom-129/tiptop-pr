@@ -83,8 +83,6 @@ How to contribute to TiPToP, including development setup and code style.
 
 ## Blog
 
-Updates, benchmark results, and insights from the TiPToP team.
-
 ::::{grid} 1
 :gutter: 3
 
