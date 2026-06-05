@@ -29,8 +29,6 @@ TiPToP 在 MolmoSpaces 上取得 46.1%——超越了所有未在 MolmoBot 数�
 ```{figure} ../../_static/molmospaces-failure-breakdown.png
 :align: center
 :alt: 失败分析桑基图
-
-图 2：把每个失败回合追溯到肇因模块的桑基图。
 ```
 
 **主要发现：**
