@@ -1,27 +1,21 @@
 # 在 MolmoSpaces 基准上以推理时搜索取得 SOTA
 
-作者: [Nishanth Kumar](https://nishanthjkumar.com/)
-译者：[Jie Wang](https://x.com/JieWang_ZJUI)
-
-2026年5月8日
+作者: [Nishanth Kumar](https://nishanthjkumar.com/) · 译者：[Jie Wang](https://x.com/JieWang_ZJUI) · 2026年5月8日
 
 原文链接：[点击此处](https://x.com/nishanthkumar23/status/2052766074597265837)
 
-
-
 我们最近开发了 [TiPToP](https://tiptop-robot.github.io/)：一个通用操控系统，先用基础模型做感知，再通过推理时搜索生成轨迹（具体而言即任务与运动规划，TAMP）。系统输入自然语言与图像，输出试图完成指令的轨迹——其输入输出规格与视觉–语言–动作模型（VLAs）、世界动作模型（WAMs）等端到端机器人基础模型相当。
-
-
 
 在我们发布系统的同期，涌现出多个旨在支持大规模跨方法比较的基准测试。其中之一是 [MolmoSpaces](https://molmospaces.allen.ai/leaderboard)，一个基于仿真的基准测试，其排行榜涵盖了大多数最先进的 VLAs、WAMs 及相关操控方法。我们认为，让TiPToP再他上面试试看会很有趣
 
-
-
 TiPToP 在 MolmoSpaces 上取得 46.1%——超越了所有未在 MolmoBot 数据上训练的方法，成绩几乎是次佳结果（MolmoAct2-DROID）的两倍。这是在 9 个任务上、每任务各 1000 个回合上跑出的结果，且未改动底层实现（额外工作仅为对接 MolmoSpaces API 的集成层）。值得注意的是，TiPToP 不依赖机器人数据，未针对该基准调优，可跨任务与形态泛化，且是排行榜上唯一采用推理时搜索的方法。
 
-![图片](https://pbs.twimg.com/media/HHzTF8-WUAQt61F?format=png&name=small)
+```{figure} ../../_static/molmospaces-leaderboard.png
+:align: center
+:alt: MolmoSpaces 基准结果
 
-> 图 1：截至 2026 年 5 月 7 日，MolmoSpaces 全部 9 个任务的基准结果（不含 MS-Open 与 MS-Close）。
+图 1：截至 2026 年 5 月 7 日，MolmoSpaces 全部 9 个任务的基准结果（不含 MS-Open 与 MS-Close）。
+```
 
 结果中还有若干亮点（可在此[查看排行榜](https://molmospaces.allen.ai/leaderboard)并探索更多信息）：
 
@@ -32,7 +26,12 @@ TiPToP 在 MolmoSpaces 上取得 46.1%——超越了所有未在 MolmoBot 数�
 
 由于 TiPToP 是模块化系统，我们能够对 MolmoSpaces 的结果做对学习型策略往往很难的一件事：把每个失败回合追溯到具体肇因模块。我们对 9000 次试验逐一追溯并标注；下面的桑基图概括了结论。
 
-![图片](https://pbs.twimg.com/media/HHzTw0tXAAMTP9O?format=png&name=small)
+```{figure} ../../_static/molmospaces-failure-breakdown.png
+:align: center
+:alt: 失败分析桑基图
+
+图 2：把每个失败回合追溯到肇因模块的桑基图。
+```
 
 **主要发现：**
 
@@ -79,4 +78,4 @@ TiPToP 在 MolmoSpaces 上取得 46.1%——超越了所有未在 MolmoBot 数�
 
 ## 致谢
 
-[@ryanlindeborg](https://x.com/@ryanlindeborg) Lindeborg 主导了 TiPToP 与 MolmoSpaces 的集成工作，并收集和分析了相关结果。[@WillShenSaysHi](https://x.com/@WillShenSaysHi) 支持了集成工作，协助运行基准实验，并帮助分析了结果。[@nishanthkumar23](https://x.com/@nishanthkumar23) 协助集成并参与分析和呈现结果。[@omarrayyann](https://x.com/@omarrayyann)、Maximilian Argus、[@wpumacay7567](https://x.com/@wpumacay7567) 和 [@notmahi](https://x.com/@notmahi) 提供了鼓励和宝贵的调试支持，使 TiPToP 得以与 MolmoSpaces 集成并将我们的结果添加到公开排行榜。
+[@ryanlindeborg](https://x.com/ryanlindeborg) Lindeborg 主导了 TiPToP 与 MolmoSpaces 的集成工作，并收集和分析了相关结果。[@WillShenSaysHi](https://x.com/WillShenSaysHi) 支持了集成工作，协助运行基准实验，并帮助分析了结果。[@nishanthkumar23](https://x.com/nishanthkumar23) 协助集成并参与分析和呈现结果。[@omarrayyann](https://x.com/omarrayyann)、Maximilian Argus、[@wpumacay7567](https://x.com/wpumacay7567) 和 [@notmahi](https://x.com/notmahi) 提供了鼓励和宝贵的调试支持，使 TiPToP 得以与 MolmoSpaces 集成并将我们的结果添加到公开排行榜。
