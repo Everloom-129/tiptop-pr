@@ -1,6 +1,6 @@
 # TiPToP
 
-🌐 [Project Website](https://tiptop-robot.github.io) · 📝 [Paper](https://arxiv.org/abs/2603.09971)
+🌐 [Project Website](https://tiptop-robot.github.io) · 📝 [Paper](https://arxiv.org/abs/2603.09971) · 💻 [Code](https://github.com/tiptop-robot/tiptop)
 
 TiPToP is a Task and Motion Planning (TAMP) system that performs complex robot manipulation tasks like sorting, rearranging, and packing from images and natural language instructions. Using a modular architecture that separates perception, planning, and execution, TiPToP works out-of-the-box with zero training, zero demonstrations, and zero object-specific 3D models—yet matches or exceeds vision-language models trained on 350 hours of robot data.
 
