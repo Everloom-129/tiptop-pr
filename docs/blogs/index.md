@@ -11,7 +11,7 @@
 
 TiPToP achieves 46.1% on MolmoSpaces — outperforming every approach not trained on MolmoBot data and nearly doubling the next-best result.
 
-[中文版](CN_achieving-sota-molmospaces-inference-time-search)
+[中文版](CN_achieving-sota-molmospaces-inference-time-search.md)
 :::
 
 ::::
