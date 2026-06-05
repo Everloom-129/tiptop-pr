@@ -77,14 +77,29 @@ Limitations of the current TiPToP system.
 How to contribute to TiPToP, including development setup and code style.
 :::
 
-:::{grid-item-card} 📝 Blog
-:link: blogs/index
-:link-type: doc
+::::
+
+---
+
+## Blog
 
 Updates, benchmark results, and insights from the TiPToP team.
+
+::::{grid} 1
+:gutter: 3
+
+:::{grid-item-card} Achieving SOTA on the MolmoSpaces Benchmark with Inference-Time Search
+:link: blogs/molmospaces-inference-time-search/en
+:link-type: doc
+
+*Nishanth Kumar · May 08, 2026*
+
+TiPToP achieves 46.1% on MolmoSpaces — outperforming every approach not trained on MolmoBot data and nearly doubling the next-best result.
 :::
 
 ::::
+
+[See all posts →](blogs/index.md)
 
 ---
 
