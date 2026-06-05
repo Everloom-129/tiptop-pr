@@ -29,8 +29,6 @@ Because TiPToP is a modular system, we can do something with the MolmoSpaces res
 ```{figure} ../../_static/molmospaces-failure-breakdown.png
 :align: center
 :alt: Failure breakdown Sankey diagram
-
-Fig. 2: Sankey diagram tracing each failed episode to the module that caused it.
 ```
 
 **Key findings:**
@@ -72,7 +70,7 @@ We don't think so. To quote the Bitter Lesson directly: “breakthrough progress
 
 While [similar systems](https://arxiv.org/abs/2108.04145) have existed before, at least two things have changed recently. First, foundation models for perception, grounding, and affordance prediction are extremely capable. They can be connected to a planner and deliver meaningful real-world performance, and they continue to improve. Second, planning has gotten significantly faster. Recent improvements in hardware (GPUs and CPUs), and algorithms have enabled extremely fast search and motion planning.
 
-**6. You highlight a number of assumptions and approximations (e.g., convex hull for objects) that your system makes in your paper. Are these limitations fundamental?**
+**5. You highlight a number of assumptions and approximations (e.g., convex hull for objects) that your system makes in your paper. Are these limitations fundamental?**
 
 We indeed make a number of explicit assumptions and approximations that we have tried to highlight. These make it clear what sets of problems the system will fail on (i.e., where our assumptions are violated), and we believe this is a strength since it makes the system more interpretable. We think it is interesting and noteworthy that our system performs well on the MolmoSpaces benchmark despite its many limitations and assumptions: not only does this reveal something about the applicability of these assumptions for generalized pick-and-place problems, but it also provides a concrete set of directions for system improvement (namely removing the assumptions). We do not believe these limitations are fundamental: there is existing research on ways to resolve almost every limitation we identify. We believe it is possible to improve our system’s performance very significantly with a few targeted improvements to address specific limitations.
 

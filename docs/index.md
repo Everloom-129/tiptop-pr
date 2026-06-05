@@ -86,7 +86,7 @@ How to contribute to TiPToP, including development setup and code style.
 ::::{grid} 1
 :gutter: 3
 
-:::{grid-item-card} Achieving SOTA on the MolmoSpaces Benchmark with Inference-Time Search
+:::{grid-item-card} Achieving SOTA on the MolmoSpaces benchmark with Inference-Time Search
 :link: blogs/molmospaces-inference-time-search/en
 :link-type: doc
 

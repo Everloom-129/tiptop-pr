@@ -3,7 +3,7 @@
 ::::{grid} 1 1 1 1
 :gutter: 3
 
-:::{grid-item-card} Achieving SOTA on the MolmoSpaces Benchmark with Inference-Time Search
+:::{grid-item-card} Achieving SOTA on the MolmoSpaces benchmark with Inference-Time Search
 :link: molmospaces-inference-time-search/en
 :link-type: doc
 
