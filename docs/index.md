@@ -95,6 +95,8 @@ Updates, benchmark results, and insights from the TiPToP team.
 *Nishanth Kumar · May 08, 2026*
 
 TiPToP achieves 46.1% on MolmoSpaces — outperforming every approach not trained on MolmoBot data and nearly doubling the next-best result.
+
+[中文版](blogs/molmospaces-inference-time-search/cn.md)
 :::
 
 ::::
